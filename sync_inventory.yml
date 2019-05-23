@@ -11,6 +11,7 @@
       user: admin
       password: "This4now!"
       validate_certs: False
+      force_basic_auth: yes
       status_code:
         - 200
         - 201
