@@ -15,6 +15,7 @@
         flavor: "m1.small"
         network: "private"
         key_name: "frednogeorge"
+        meta: "sys_type=linux,linux_type=redhat,linux_ver=7,centos=centos7"
       register: that_block_data
     - name: report
       debug:
