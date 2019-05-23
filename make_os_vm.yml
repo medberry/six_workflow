@@ -1,0 +1,26 @@
+---
+- name: Launch a VM on premises
+  hosts: localhost
+  vars:
+    vm_name: "vm_for_sixwf"
+  tasks:
+    - name: Report vm_name
+      debug: 
+        msg: "{{ vm_name }}"
+    - name: launch an instance
+      os_server:
+        name: "{{ vm_name }}"
+        state: present
+        image: "centos7old"
+        flavor: "m1.small"
+        network: "private"
+        key_name: "frednogeorge"
+      register: that_block_data
+    - name: report
+      debug:
+        msg: "{{ that_block_data }}"
+    # - name: Add floating ip
+    #   os_floating_ip:
+    #     server: "vm_for_sixwf"
+    #     reuse: yes
+    #     network: "public"
