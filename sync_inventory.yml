@@ -6,7 +6,7 @@
   - name: trigger inventory sync
     uri:
       # url:  https://localhost/api/v1/projects/7/update/
-      url: https://localhost/api/v2/inventories/2/update_inventory_sources/
+      url: https://172.24.4.16/api/v2/inventories/2/update_inventory_sources/
       method: POST
       user: admin
       password: "This4now!"
