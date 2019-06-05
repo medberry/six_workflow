@@ -1,0 +1,26 @@
+---
+- name: Generate RHEL 7 SCAP fix
+  hosts: centos7-all-images
+  become: true
+
+  tasks:
+  - name: generate scap output
+    command:
+      args:
+        argv:
+          - oscap
+          - xccdf
+          - generate
+          - fix
+          - "--fix-type"
+          - ansible
+          - "--profile"
+          - xccdf_org.ssgproject.content_profile_stig-rhel7-disa
+          - "--output"
+          - stig-rhel7-role.yml
+          - /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+    register: oscap_result
+          
+  - name: 
+    debug:
+      var: oscap_result
