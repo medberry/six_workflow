@@ -2,7 +2,7 @@
 - name: Launch a VM on premises
   hosts: localhost
   vars:
-    vm_name: "vm_for_sixwf"
+    vm_name: "postgres"
   tasks:
     - name: Report vm_name
       debug: 
@@ -11,8 +11,8 @@
       os_server:
         name: "{{ vm_name }}"
         state: present
-        image: "centos7old"
-        flavor: "m1.small"
+        image: "centos7"
+        flavor: "m1.medium"
         network: "private"
         key_name: "frednogeorge"
         meta: "sys_type=linux,linux_type=redhat,linux_ver=7,centos=centos7"
