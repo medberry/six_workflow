@@ -1,0 +1,11 @@
+---
+- name: Install OpenScap
+  hosts: centos7-all-images
+  become: true
+
+  tasks:
+  - name: Install openscap-scanner
+    yum: 
+      name: openscap-scanner
+      state: latest
+      
